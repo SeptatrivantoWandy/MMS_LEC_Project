@@ -9,7 +9,7 @@
 /*
  Anggota Kelompok:
  1. 2301869512 - Septatrivanto Wandy
- 2.
+ 2. 2301864543 - Louis Siau Sentra
  3.
  4.
  5.
