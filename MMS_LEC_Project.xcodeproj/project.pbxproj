@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0900F13927739618007A8FD5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900F13827739617007A8FD5 /* User.swift */; };
+		0900F13B27739652007A8FD5 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900F13A27739652007A8FD5 /* Exercise.swift */; };
+		0900F13D27739669007A8FD5 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900F13C27739669007A8FD5 /* History.swift */; };
+		090221612772D37F00B7B9AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090221602772D37F00B7B9AF /* RegisterViewController.swift */; };
+		090221632772DD3800B7B9AF /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090221622772DD3800B7B9AF /* ExerciseViewController.swift */; };
+		090221652772DD6E00B7B9AF /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090221642772DD6E00B7B9AF /* ExerciseTableViewCell.swift */; };
+		090221672772DDBE00B7B9AF /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090221662772DDBE00B7B9AF /* ExerciseDetailViewController.swift */; };
+		090221692772DDDC00B7B9AF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090221682772DDDC00B7B9AF /* HistoryViewController.swift */; };
+		0902216B2772DE0200B7B9AF /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902216A2772DE0200B7B9AF /* HistoryTableViewCell.swift */; };
+		0902216D2772DE3100B7B9AF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902216C2772DE3100B7B9AF /* ProfileViewController.swift */; };
+		0902216F2772DE7D00B7B9AF /* ProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902216E2772DE7D00B7B9AF /* ProfileUpdateViewController.swift */; };
 		09F7C12D276AF67D00A6611B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7C12C276AF67D00A6611B /* AppDelegate.swift */; };
 		09F7C12F276AF67D00A6611B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7C12E276AF67D00A6611B /* SceneDelegate.swift */; };
 		09F7C131276AF67D00A6611B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7C130276AF67D00A6611B /* ViewController.swift */; };
@@ -17,6 +28,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0900F13827739617007A8FD5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0900F13A27739652007A8FD5 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		0900F13C27739669007A8FD5 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		090221602772D37F00B7B9AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		090221622772DD3800B7B9AF /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		090221642772DD6E00B7B9AF /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		090221662772DDBE00B7B9AF /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
+		090221682772DDDC00B7B9AF /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		0902216A2772DE0200B7B9AF /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		0902216C2772DE3100B7B9AF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0902216E2772DE7D00B7B9AF /* ProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		09F7C129276AF67D00A6611B /* MMS_LEC_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMS_LEC_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F7C12C276AF67D00A6611B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F7C12E276AF67D00A6611B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,11 +83,22 @@
 				09F7C12C276AF67D00A6611B /* AppDelegate.swift */,
 				09F7C12E276AF67D00A6611B /* SceneDelegate.swift */,
 				09F7C130276AF67D00A6611B /* ViewController.swift */,
+				090221602772D37F00B7B9AF /* RegisterViewController.swift */,
+				090221622772DD3800B7B9AF /* ExerciseViewController.swift */,
+				090221642772DD6E00B7B9AF /* ExerciseTableViewCell.swift */,
+				090221662772DDBE00B7B9AF /* ExerciseDetailViewController.swift */,
+				090221682772DDDC00B7B9AF /* HistoryViewController.swift */,
+				0902216A2772DE0200B7B9AF /* HistoryTableViewCell.swift */,
+				0902216C2772DE3100B7B9AF /* ProfileViewController.swift */,
+				0902216E2772DE7D00B7B9AF /* ProfileUpdateViewController.swift */,
 				09F7C132276AF67D00A6611B /* Main.storyboard */,
 				09F7C138276AF67F00A6611B /* Assets.xcassets */,
 				09F7C13A276AF67F00A6611B /* LaunchScreen.storyboard */,
 				09F7C13D276AF67F00A6611B /* Info.plist */,
 				09F7C135276AF67D00A6611B /* MMS_LEC_Project.xcdatamodeld */,
+				0900F13827739617007A8FD5 /* User.swift */,
+				0900F13A27739652007A8FD5 /* Exercise.swift */,
+				0900F13C27739669007A8FD5 /* History.swift */,
 			);
 			path = MMS_LEC_Project;
 			sourceTree = "<group>";
@@ -141,9 +174,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0900F13927739618007A8FD5 /* User.swift in Sources */,
 				09F7C131276AF67D00A6611B /* ViewController.swift in Sources */,
+				090221612772D37F00B7B9AF /* RegisterViewController.swift in Sources */,
 				09F7C12D276AF67D00A6611B /* AppDelegate.swift in Sources */,
+				090221672772DDBE00B7B9AF /* ExerciseDetailViewController.swift in Sources */,
+				0900F13B27739652007A8FD5 /* Exercise.swift in Sources */,
+				0902216B2772DE0200B7B9AF /* HistoryTableViewCell.swift in Sources */,
+				090221652772DD6E00B7B9AF /* ExerciseTableViewCell.swift in Sources */,
+				0902216D2772DE3100B7B9AF /* ProfileViewController.swift in Sources */,
+				0900F13D27739669007A8FD5 /* History.swift in Sources */,
 				09F7C137276AF67D00A6611B /* MMS_LEC_Project.xcdatamodeld in Sources */,
+				090221692772DDDC00B7B9AF /* HistoryViewController.swift in Sources */,
+				0902216F2772DE7D00B7B9AF /* ProfileUpdateViewController.swift in Sources */,
+				090221632772DD3800B7B9AF /* ExerciseViewController.swift in Sources */,
 				09F7C12F276AF67D00A6611B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
