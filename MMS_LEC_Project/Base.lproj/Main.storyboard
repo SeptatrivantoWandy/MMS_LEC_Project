@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-PU-gBT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gambarLogin" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-PU-gBT">
                                 <rect key="frame" x="20" y="64" width="374" height="300"/>
                                 <color key="tintColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -988,7 +988,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="SAVE"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2kx-Ds-SRn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="updateProfile" translatesAutoresizingMaskIntoConstraints="NO" id="2kx-Ds-SRn">
                                 <rect key="frame" x="20" y="286" width="374" height="300"/>
                                 <color key="tintColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1151,8 +1151,10 @@
     <resources>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="exercise" width="30" height="30"/>
+        <image name="gambarLogin" width="308" height="230"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="updateProfile" width="286" height="175"/>
     </resources>
 </document>
