@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct User {
+    var userId: Int
+    var userName: String
+    var userEmail: String
+    var userGender: String
+    var userHeight: Int
+    var userWeight: Int
+    var userPassword: String
+}

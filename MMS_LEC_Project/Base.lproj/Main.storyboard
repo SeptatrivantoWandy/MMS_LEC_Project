@@ -43,7 +43,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRd-kx-9TQ">
                                 <rect key="frame" x="20" y="524" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGf-pp-tK3">
                                 <rect key="frame" x="20" y="686" width="374" height="30"/>
@@ -52,7 +52,8 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
-                                    <segue destination="gbf-N3-ZOs" kind="presentation" id="xvq-Lc-qRP"/>
+                                    <action selector="btnLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pQ5-aW-LYe"/>
+                                    <segue destination="gbf-N3-ZOs" kind="presentation" identifier="goToExerciseSegue" id="xvq-Lc-qRP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBB-0g-wqj">
@@ -61,7 +62,8 @@
                                 <color key="tintColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="didn't have account? go register"/>
                                 <connections>
-                                    <segue destination="vRw-ha-Mhr" kind="presentation" id="JeF-iK-eVe"/>
+                                    <action selector="btnDidntHaveAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yig-yx-Yco"/>
+                                    <segue destination="vRw-ha-Mhr" kind="presentation" identifier="goToRegisterSegue" modalPresentationStyle="fullScreen" id="ESr-jV-Ler"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,6 +94,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="LOGIN" id="WCY-ul-ggC"/>
+                    <connections>
+                        <outlet property="tfUserName" destination="jHc-DZ-bQf" id="9xr-A1-chA"/>
+                        <outlet property="tfUserPassword" destination="lRd-kx-9TQ" id="blg-Vc-xeA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,9 +142,12 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2L4-Qm-wbV">
                                 <rect key="frame" x="20" y="259" width="374" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentUserGender:" destination="MSb-YS-k5y" eventType="valueChanged" id="xLY-bG-E95"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lo5-el-K3U">
                                 <rect key="frame" x="20" y="476" width="374" height="21"/>
@@ -149,9 +158,9 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-PR-SwF">
                                 <rect key="frame" x="20" y="505" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (kg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKm-jo-8Rx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKm-jo-8Rx">
                                 <rect key="frame" x="20" y="310" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -171,7 +180,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="him-DQ-3TZ">
                                 <rect key="frame" x="20" y="588" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-3M-8df">
                                 <rect key="frame" x="20" y="686" width="374" height="30"/>
@@ -179,6 +188,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="REGISTER"/>
+                                <connections>
+                                    <action selector="btnRegister:" destination="MSb-YS-k5y" eventType="touchUpInside" id="X9A-6x-6wD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUn-nh-Yzf">
                                 <rect key="frame" x="20" y="644" width="374" height="30"/>
@@ -255,6 +267,15 @@
                         <viewLayoutGuide key="safeArea" id="SnR-ma-6Il"/>
                     </view>
                     <navigationItem key="navigationItem" title="REGISTRATION" id="0qy-IK-EBA"/>
+                    <connections>
+                        <outlet property="tfUserConfirmPassword" destination="him-DQ-3TZ" id="b9Y-d4-C46"/>
+                        <outlet property="tfUserEmail" destination="3kX-cN-boZ" id="sgX-d9-fDM"/>
+                        <outlet property="tfUserHeight" destination="Ul0-rb-kXw" id="gjs-sg-Idy"/>
+                        <outlet property="tfUserName" destination="kUt-V1-0lQ" id="dTc-IL-a6S"/>
+                        <outlet property="tfUserPassword" destination="ir1-PR-SwF" id="e1f-eb-iuO"/>
+                        <outlet property="tfUserWeight" destination="kN7-eZ-zQd" id="N8E-n2-RlQ"/>
+                        <segue destination="4Py-jD-uge" kind="unwind" identifier="backToViewController" unwindAction="unwindToViewControllerInsertDBUser:" id="f6o-ho-Yjc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkP-aj-tmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="4Py-jD-uge" userLabel="Exit" sceneMemberID="exit"/>

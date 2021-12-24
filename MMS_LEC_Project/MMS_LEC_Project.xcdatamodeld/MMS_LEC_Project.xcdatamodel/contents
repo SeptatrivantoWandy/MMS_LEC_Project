@@ -10,7 +10,7 @@
     </entity>
     <entity name="HistoryEntity" representedClassName="HistoryEntity" syncable="YES" codeGenerationType="class">
         <attribute name="exerciseId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="historyCaloriesBurn" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="historyCaloriesBurn" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="historyId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="historyImage" optional="YES" attributeType="String"/>
         <attribute name="historyName" optional="YES" attributeType="String"/>
@@ -27,8 +27,8 @@
         <attribute name="userWeight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="ExerciseEntity" positionX="-54" positionY="45" width="128" height="133"/>
         <element name="HistoryEntity" positionX="-36" positionY="81" width="128" height="148"/>
+        <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>
