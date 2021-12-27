@@ -799,6 +799,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="LOGOUT"/>
                                 <connections>
+                                    <action selector="goToViewController:" destination="FEr-sl-juD" eventType="touchUpInside" id="RYp-fh-O0I"/>
                                     <segue destination="C0e-Qp-EMs" kind="unwind" unwindAction="unwindToViewControllerBack:" id="MTg-dh-lzE"/>
                                 </connections>
                             </button>
@@ -966,6 +967,13 @@
                         <viewLayoutGuide key="safeArea" id="5x7-pe-V2C"/>
                     </view>
                     <navigationItem key="navigationItem" title="PROFILE" id="bVg-bR-0eZ"/>
+                    <connections>
+                        <outlet property="lblUserEmail" destination="fjH-xW-gW5" id="HmG-UU-m7N"/>
+                        <outlet property="lblUserGender" destination="HLJ-bh-WUi" id="p4f-w9-4rk"/>
+                        <outlet property="lblUserHeight" destination="SuM-aF-abS" id="JKC-i4-1nF"/>
+                        <outlet property="lblUserName" destination="TUF-64-KU4" id="kcA-2a-jGl"/>
+                        <outlet property="lblUserWeight" destination="wpX-TW-clT" id="Kxf-CR-S6H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEE-HU-OyW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="C0e-Qp-EMs" userLabel="Exit" sceneMemberID="exit"/>
@@ -1173,7 +1181,7 @@
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="exercise" width="30" height="30"/>
         <image name="gambarLogin" width="308" height="230"/>
-        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.circle.fill" catalog="system" width="32" height="32"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="updateProfile" width="286" height="175"/>

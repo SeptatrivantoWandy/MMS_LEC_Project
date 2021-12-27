@@ -23,18 +23,19 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    var newUserId = 0
     
     @IBOutlet weak var tfUserName: UITextField!
     @IBOutlet weak var tfUserPassword: UITextField!
+    let defaults = UserDefaults.standard
     
     @IBAction func btnDidntHaveAccount(_ sender: Any) {
     }
     
     var userList = [User]()
-    var newUserId = 0
     var context:NSManagedObjectContext!
     var userIdPass = 0
-    var loginPass = 0;
+    var loginPass = 0
     
     
     override func viewDidLoad() {
@@ -46,6 +47,10 @@ class ViewController: UIViewController {
         
         tfUserPassword.textContentType = .oneTimeCode
         loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkLoginDefault()
     }
     
     
@@ -68,17 +73,28 @@ class ViewController: UIViewController {
             alert(msg: "invalid username or password", handler: nil)
         }
         else {
-            if (checkLogin() == -1) {
+            if (checkLoginIdPass() == -1) {
                 alert(msg: "invalid username or password", handler: nil)
             }
             else {
-                performSegue(withIdentifier: "goToExerciseSegue", sender: self)
-                
+                defaults.set(["useridpass": userIdPass], forKey: "user")
+                checkLoginDefault()
             }
         }
     }
     
-    func checkLogin() -> Int {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToExerciseSegue" {
+//
+//            let tabControl = segue.destination as! UITabBarController
+//            let navigation = tabControl.viewControllers?[2] as! UINavigationController
+//            let destination = navigation.viewControllers.first as! ProfileViewController
+//            destination.userIdPass = userIdPass
+//
+//        }
+//    }
+    
+    func checkLoginIdPass() -> Int {
         for data in userList{
             if (data.userName == tfUserName.text! && data.userPassword == tfUserPassword.text!) {
                 userIdPass = data.userId
@@ -86,6 +102,12 @@ class ViewController: UIViewController {
             }
         }
         return -1
+    }
+    
+    func checkLoginDefault() {
+        if let user = defaults.dictionary(forKey: "user") {
+            performSegue(withIdentifier: "goToExerciseSegue", sender: self)
+        }
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
