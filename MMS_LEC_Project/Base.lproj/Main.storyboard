@@ -1057,6 +1057,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="cIY-He-kYy" kind="unwind" identifier="backToProfileViewController" unwindAction="unwindToProfileViewControllerUpdateDBUser:" id="gRO-Eb-lB1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nud-0B-RAp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cIY-He-kYy" userLabel="Exit" sceneMemberID="exit"/>

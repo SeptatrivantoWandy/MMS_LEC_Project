@@ -83,17 +83,7 @@ class ViewController: UIViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToExerciseSegue" {
-//
-//            let tabControl = segue.destination as! UITabBarController
-//            let navigation = tabControl.viewControllers?[2] as! UINavigationController
-//            let destination = navigation.viewControllers.first as! ProfileViewController
-//            destination.userIdPass = userIdPass
-//
-//        }
-//    }
-    
+    // cek berhasil login atau tidak
     func checkLoginIdPass() -> Int {
         for data in userList{
             if (data.userName == tfUserName.text! && data.userPassword == tfUserPassword.text!) {
@@ -104,27 +94,22 @@ class ViewController: UIViewController {
         return -1
     }
     
+    // isi id nya kalau tidak pernah log out
     func checkLoginDefault() {
         if let user = defaults.dictionary(forKey: "user") {
             performSegue(withIdentifier: "goToExerciseSegue", sender: self)
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToRegisterSegue" {
-//            let navigation = segue.destination as! UINavigationController
-//            let destination = navigation.viewControllers.first as! RegisterViewController
-//        }
-//
-//    }
-    
     @IBAction func unwindToViewControllerBack(_ unwindSegue: UIStoryboardSegue) {
         
     }
     
     @IBAction func unwindToViewControllerInsertDBUser(_ unwindSegue: UIStoryboardSegue) {
+        // cara ambil var dari VC lain kalau di unwind
         if let source = unwindSegue.source as? RegisterViewController {
             
+            // validasi dan kasih id
             if (userList.isEmpty) {
                 newUserId = 0
             }
@@ -132,6 +117,7 @@ class ViewController: UIViewController {
                 newUserId = newUserId + 1
             }
             
+            // tampung ke sebuah variable dari sumber variable VC
             let newUserName = source.tfUserName.text!
             let newUserEmail = source.tfUserEmail.text!
             let newUserGender = source.userGender
@@ -139,6 +125,7 @@ class ViewController: UIViewController {
             let newUserWeight = source.tfUserWeight.text!
             let newUserPassword = source.tfUserPassword.text!
             
+            // insert data baru ke core data
             let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: context)
             let newUser = NSManagedObject(entity: entity!, insertInto: context)
             
@@ -159,7 +146,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func loadData() {
+    func loadData() { // load data ke array yang dibuat
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
         
         do {
