@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController {
     var userIdPass: Int? //penampung user Id yg di login
     
     // silahakan buat penampung var update data
+    var newHeight = ""
+    var newWeight = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,13 +92,31 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func unwindToProfileViewControllerUpdateDBUser(_ unwindSegue: UIStoryboardSegue) {
-        // tampung dulu variable yg di update dari profileUpdateVC cth ad di VC (unwindToViewControllerInsertDBUser)
-        
-        // mulai syntax insert
-        
-        // lihat video di: 1:54:40 kalau mau lihat asal mulanya lihat di: 1:38:8 kecuali untuk syntax self. tidak perlu. contohkah smpai ke try catch https://drive.google.com/file/d/1ycSXL283EZMaGw_pHXJxR5xaGyIqRHN4/view?usp=sharing
-        
-        
+        if let source = unwindSegue.source as? ProfileUpdateViewController {
+            newHeight = source.tfHeight.text!
+            newWeight = source.tfWeight.text!
+            
+            // ! masih ada masalah di update profile
+            let req = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+            let predicate = NSPredicate(format: "userId = %@", userIdPass!)
+            req.predicate = predicate
+            
+            do{
+                let result = try context.fetch(req) as! [NSManagedObject]
+                print(userIdPass!)
+                print(result)
+                for data in result{
+                    data.setValue(newHeight, forKey: "userHeight")
+                    data.setValue(newWeight, forKey: "userWeight")
+                }
+                
+                try context.save()
+                loadData()
+                
+            } catch {
+                
+            }
+        }
         
     }
 
