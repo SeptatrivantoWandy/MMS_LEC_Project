@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+// isi struct sesuai dengan yang ada di coredata

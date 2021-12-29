@@ -10,6 +10,9 @@ import UIKit
 
 class ExerciseTableViewCell: UITableViewCell {
 
+    
+    // insert outlet-outletnya
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

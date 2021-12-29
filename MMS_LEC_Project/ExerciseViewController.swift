@@ -17,14 +17,13 @@ class ExerciseViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // insert outlet table viewnya, import table view delegate, dll
+    // buat semua variabel penampung sesuai dengan core databasenya
+    // isi class Exercise sesuai dengan core database juga (contoh seperti class user dengan menggunakan struct)
+    // buat array of exercise (nama: exerciseList)
+    // deklarasikan dulu user defaultnya cth ada di profile viewController (func checkUserIdDefault)
+    // karena static, isi dan append array exerciseListnya dengan diisi dengan 8 macam exercise (isi id mulai dari 0)
+    // buat func table view yang wajib (number of row untuk set jumlah row, cell for row untuk set label + image, dan did select row at untuk push navigation ke exerciseDetailVC)
+    // unwind segue: unwindToViewControllerBack untuk fungsi back dari detail
 
 }
