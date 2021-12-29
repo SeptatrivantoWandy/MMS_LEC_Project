@@ -21,6 +21,7 @@
 import UIKit
 import CoreData
 
+
 class ViewController: UIViewController {
     
     var newUserId = 0
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         
         tfUserPassword.textContentType = .oneTimeCode
         loadData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +116,8 @@ class ViewController: UIViewController {
                 newUserId = 0
             }
             else {
-                newUserId = newUserId + 1
+                let lastUserId = userList[userList.count - 1].userId
+                newUserId = lastUserId + 1
             }
             
             // tampung ke sebuah variable dari sumber variable VC

@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     let defaults = UserDefaults.standard //isi dari defaults
     var userIdPass: Int? //penampung user Id yg di login
     
-    // silahakan buat penampung var update data
-    var newHeight = ""
-    var newWeight = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,12 +32,29 @@ class ProfileViewController: UIViewController {
         loadData()
         checkUserIdDefault()
     
+        // print(userIdPass!)
         // baca data dan set text dari array yang sudah distore dari database berdasarkan userIdPass
         lblUserName.text = userList[userIdPass!].userName
         lblUserGender.text = userList[userIdPass!].userGender
         lblUserEmail.text = userList[userIdPass!].userEmail
         lblUserHeight.text = "\(userList[userIdPass!].userHeight)"
         lblUserWeight.text = "\(userList[userIdPass!].userWeight)"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        lblUserHeight.text = "\(userList[userIdPass!].userHeight)"
+        lblUserWeight.text = "\(userList[userIdPass!].userWeight)"
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToUpdateProfileSegue" {
+            let navigation = segue.destination as! UINavigationController
+            let destination = navigation.viewControllers.first as! ProfileUpdateViewController
+            
+            destination.loadUpdateHeight = userList[userIdPass!].userHeight
+            destination.loadUpdateWeight = userList[userIdPass!].userWeight
+            
+        }
     }
     
     func checkUserIdDefault(){ //check ID yg di login dan dapatkan userIdPassnya
@@ -81,6 +94,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
     // hapus default idnya jika melakukan log out
     @IBAction func goToViewController(_ sender: Any) {
         defaults.removeObject(forKey: "user")
@@ -93,21 +107,22 @@ class ProfileViewController: UIViewController {
     
     @IBAction func unwindToProfileViewControllerUpdateDBUser(_ unwindSegue: UIStoryboardSegue) {
         if let source = unwindSegue.source as? ProfileUpdateViewController {
-            newHeight = source.tfHeight.text!
-            newWeight = source.tfWeight.text!
+            let updateHeight = source.tfHeight.text!
+            let updateWeight = source.tfWeight.text!
             
-            // ! masih ada masalah di update profile
+            
             let req = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
-            let predicate = NSPredicate(format: "userId = %@", userIdPass!)
+            let predicate = NSPredicate(format: "userId == %i", userIdPass!)
             req.predicate = predicate
             
             do{
                 let result = try context.fetch(req) as! [NSManagedObject]
-                print(userIdPass!)
-                print(result)
+//                print(userIdPass!)
+//                print(result)
                 for data in result{
-                    data.setValue(newHeight, forKey: "userHeight")
-                    data.setValue(newWeight, forKey: "userWeight")
+//                    print(data.value(forKey: "userId") as! Int)
+                    data.setValue(Int(updateHeight), forKey: "userHeight")
+                    data.setValue(Int(updateWeight), forKey: "userWeight")
                 }
                 
                 try context.save()
