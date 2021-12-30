@@ -10,6 +10,8 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController {
 
+    // testing passes
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
