@@ -8,4 +8,12 @@
 
 import Foundation
 
+class Exercise {
+    var exerciseId: Int? = nil
+    var exerciseImage: String? = nil
+    var exerciseName: String? = nil
+    var exerciseRound: Int? = nil
+    var exerciseRest: Int? = nil
+}
+
 // isi struct sesuai dengan yang ada di coredata

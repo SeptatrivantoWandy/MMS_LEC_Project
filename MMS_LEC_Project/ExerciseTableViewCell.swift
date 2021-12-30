@@ -13,6 +13,11 @@ class ExerciseTableViewCell: UITableViewCell {
     
     // insert outlet-outletnya
     
+    @IBOutlet weak var imgExercise: UIImageView!
+    @IBOutlet weak var lblExerciseRestNominal: UILabel!
+    @IBOutlet weak var lblExerciseRoundNominal: UILabel!
+    @IBOutlet weak var lblExerciseName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
