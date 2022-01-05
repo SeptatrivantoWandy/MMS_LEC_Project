@@ -117,7 +117,7 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         let exercise = exerciseList[indexPath.row]
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseDetailViewController") as? ExerciseDetailViewController{
-            
+            vc.exerciseName = exercise.exerciseName
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -129,6 +129,10 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
+    @IBAction func unwindToExerciseViewControllerInsertHistoryDB(_ unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
     // insert outlet table viewnya, import table view delegate, dll
     // buat semua variabel penampung sesuai dengan core databasenya
     // isi class Exercise sesuai dengan core database juga (contoh seperti class user dengan menggunakan struct)
