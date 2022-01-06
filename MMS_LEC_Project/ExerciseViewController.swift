@@ -126,18 +126,18 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
                 let userId = data.value(forKey: "userId") as! Int
                 let exerciseId = data.value(forKey: "exerciseId") as! Int
                 let historyImage = data.value(forKey: "historyImage") as! String
-                let historyName = data.value(forKey: "historyName")
+                let historyName = data.value(forKey: "historyName") as! String
                 let historyRepetition = data.value(forKey: "historyRepetition") as! Int
                 let historyCaloriesBurn = data.value(forKey: "historyCaloriesBurn") as! Float
                 
                 let loadHistory = History()
-                loadHistory.historyId = historyId as! Int
-                loadHistory.userId = userId as! Int
-                loadHistory.exerciseId = exerciseId as! Int
-                loadHistory.historyImage = historyImage as! String
-                loadHistory.historyName = historyName as! String
-                loadHistory.historyRepetition = historyRepetition as! Int
-                loadHistory.historyCaloriesBurn = historyCaloriesBurn as! Float
+                loadHistory.historyId = historyId
+                loadHistory.userId = userId
+                loadHistory.exerciseId = exerciseId
+                loadHistory.historyImage = historyImage
+                loadHistory.historyName = historyName
+                loadHistory.historyRepetition = historyRepetition
+                loadHistory.historyCaloriesBurn = historyCaloriesBurn
                 
                 historyList.append(loadHistory)
             }
