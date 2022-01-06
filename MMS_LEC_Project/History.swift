@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class History {
+    var historyId: Int? = nil
+    var userId: Int? = nil
+    var exerciseId: Int? = nil
+    var historyImage: String? = nil
+    var historyName: String? = nil
+    var historyRepetition: Int? = nil
+    var historyCaloriesBurn: Float? = nil
+}

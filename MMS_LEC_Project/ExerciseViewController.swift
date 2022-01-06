@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ExerciseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    var newHistoryId = 0
 
     @IBOutlet weak var tblExercise: UITableView!
-    
+    let defaults = UserDefaults.standard
+    var userIdPass: Int?
     
     var exerciseList: [Exercise] = []
     var exerciseId: Int?
@@ -20,14 +24,21 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     var exerciseRound: Int?
     var exerciseRest: Int?
     
+    var historyList = [History]()
+    var context:NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tblExercise.delegate = self
         tblExercise.dataSource = self
         
-        appendExercises()
+        let appDelegate = UIApplication.shared.delegate.self as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
         
+        appendExercises()
+        loadHistoryData()
+        checkUserIdDefault()
     }
     
     
@@ -97,6 +108,44 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseList.append(exercise8)
     }
     
+    func checkUserIdDefault(){ //check ID yg di login dan dapatkan userIdPassnya
+        if let user = defaults.dictionary(forKey:"user"){
+            userIdPass = user["useridpass"] as! Int
+        }
+    }
+    
+    func loadHistoryData() { // load data ke array yang dibuat
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryEntity")
+        
+        do {
+            let results = try context.fetch(request) as! [NSManagedObject]
+            historyList.removeAll()
+            
+            for data in results {
+                let historyId = data.value(forKey: "historyId") as! Int
+                let userId = data.value(forKey: "userId") as! Int
+                let exerciseId = data.value(forKey: "exerciseId") as! Int
+                let historyImage = data.value(forKey: "historyImage") as! String
+                let historyName = data.value(forKey: "historyName")
+                let historyRepetition = data.value(forKey: "historyRepetition") as! Int
+                let historyCaloriesBurn = data.value(forKey: "historyCaloriesBurn") as! Float
+                
+                let loadHistory = History()
+                loadHistory.historyId = historyId as! Int
+                loadHistory.userId = userId as! Int
+                loadHistory.exerciseId = exerciseId as! Int
+                loadHistory.historyImage = historyImage as! String
+                loadHistory.historyName = historyName as! String
+                loadHistory.historyRepetition = historyRepetition as! Int
+                loadHistory.historyCaloriesBurn = historyCaloriesBurn as! Float
+                
+                historyList.append(loadHistory)
+            }
+        } catch  {
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exerciseList.count
     }
@@ -117,7 +166,11 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         let exercise = exerciseList[indexPath.row]
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseDetailViewController") as? ExerciseDetailViewController{
+            
             vc.exerciseName = exercise.exerciseName
+            vc.exerciseId = exercise.exerciseId
+            vc.exerciseImage = exercise.exerciseImage
+            
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -130,7 +183,55 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     
 
     @IBAction func unwindToExerciseViewControllerInsertHistoryDB(_ unwindSegue: UIStoryboardSegue) {
-        
+        if let source = unwindSegue.source as? ExerciseDetailViewController {
+            
+            if (historyList.isEmpty) {
+                newHistoryId = 0
+            }
+            else {
+                let lastHistoryId = historyList[historyList.count - 1].historyId
+                newHistoryId = lastHistoryId! + 1
+            }
+            
+            let newExerciseId = source.exerciseId!
+            let newUserId = userIdPass!
+            let newHistoryImage = source.exerciseImage!
+            let newHistoryName = source.exerciseName!
+            let newHistoryRepetition = source.repetition!
+            let newHistoryCaloriesBurn = source.burnCalories!
+            
+            let entity = NSEntityDescription.entity(forEntityName: "HistoryEntity", in: context)
+            let newHistory = NSManagedObject(entity: entity!, insertInto: context)
+            
+            newHistory.setValue(newHistoryId, forKey: "historyId")
+            newHistory
+                .setValue(newUserId, forKey: "userId")
+            newHistory.setValue(newExerciseId, forKey: "exerciseId")
+            newHistory.setValue(newHistoryImage, forKey: "historyImage")
+            newHistory.setValue(newHistoryName, forKey: "historyName")
+            newHistory.setValue(newHistoryRepetition, forKey: "historyRepetition")
+            newHistory.setValue(newHistoryCaloriesBurn, forKey: "historyCaloriesBurn")
+            
+            do {
+                try context.save()
+            } catch {
+                
+            }
+            loadHistoryData()
+            
+//            print("HistoryListSize: \(historyList.count)")
+//            for (index, element) in historyList.enumerated() {
+//                print("historyId: \(element.historyId!)")
+//                print("userId: \(element.userId!)")
+//                print("exerciseId: \(element.exerciseId!)")
+//                print("historyImage: \(element.historyImage!)")
+//                print("historyName: \(element.historyName!)")
+//                print("historyRepetition: \(element.historyRepetition!)")
+//                print("historyCaloriesBurn: \(element.historyCaloriesBurn!)")
+//                print(" ")
+//
+//            }
+        }
     }
     
     // insert outlet table viewnya, import table view delegate, dll

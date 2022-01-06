@@ -39,11 +39,16 @@ class ProfileViewController: UIViewController {
         lblUserEmail.text = userList[userIdPass!].userEmail
         lblUserHeight.text = "\(userList[userIdPass!].userHeight)"
         lblUserWeight.text = "\(userList[userIdPass!].userWeight)"
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         lblUserHeight.text = "\(userList[userIdPass!].userHeight)"
         lblUserWeight.text = "\(userList[userIdPass!].userWeight)"
+        
+//        for (index, element) in userList.enumerated(){
+//            print("your name: \(element.userName)")
+//        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

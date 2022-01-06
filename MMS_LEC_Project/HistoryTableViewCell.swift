@@ -10,6 +10,9 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
 
+    
+    //Insert outlet-outletnya table view cellnya
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
