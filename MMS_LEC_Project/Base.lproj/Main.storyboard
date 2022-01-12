@@ -342,7 +342,7 @@
                                 <rect key="frame" x="0.0" y="189" width="414" height="496"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="Zj1-6v-h2f" customClass="HistoryTableViewCell" customModule="MMS_LEC_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryTableViewCell" rowHeight="119" id="Zj1-6v-h2f" customClass="HistoryTableViewCell" customModule="MMS_LEC_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zj1-6v-h2f" id="t3I-Ik-BWX">
@@ -447,6 +447,12 @@
                                                 <constraint firstItem="0sB-hL-5cn" firstAttribute="leading" secondItem="t3I-Ik-BWX" secondAttribute="leading" constant="8" id="zIW-7W-RmD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgHistory" destination="0sB-hL-5cn" id="HIF-88-yS7"/>
+                                            <outlet property="lblCalBurnedNominal" destination="Xhp-WX-WEm" id="2ER-Ii-znT"/>
+                                            <outlet property="lblHistoryName" destination="9tI-pT-XT8" id="cCz-aa-xZv"/>
+                                            <outlet property="lblHistoryRepititionNominal" destination="e6N-Cu-11x" id="DqV-A2-0Qx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -474,6 +480,10 @@
                         <viewLayoutGuide key="safeArea" id="ypW-pc-29a"/>
                     </view>
                     <navigationItem key="navigationItem" title="HISTORY" id="0Zu-GC-YkM"/>
+                    <connections>
+                        <outlet property="lblTotalCaloriesNom" destination="Q5J-oK-Bfv" id="DCR-ax-kTD"/>
+                        <outlet property="tblHistory" destination="qTA-LN-Wdv" id="dXG-RS-ljA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAB-c8-CC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

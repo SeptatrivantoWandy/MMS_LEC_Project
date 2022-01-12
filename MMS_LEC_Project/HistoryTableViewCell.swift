@@ -13,6 +13,11 @@ class HistoryTableViewCell: UITableViewCell {
     
     //Insert outlet-outletnya table view cellnya
     
+    @IBOutlet weak var lblHistoryName: UILabel!
+    @IBOutlet weak var imgHistory: UIImageView!
+    @IBOutlet weak var lblHistoryRepititionNominal: UILabel!
+    @IBOutlet weak var lblCalBurnedNominal: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
