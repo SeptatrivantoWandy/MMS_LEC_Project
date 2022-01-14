@@ -19,6 +19,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     var historyList = [History]()
+    var exerciseList = [Exercise]()
     
     var historyListCorrespond = [History]()
     var historyId: Int?
@@ -35,6 +36,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        appendExercises()
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -146,7 +149,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let historyCell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell") as! HistoryTableViewCell
         
         historyCell.imgHistory.image = UIImage(named: "\(data.historyImage!)")
-        historyCell.lblHistoryName.text = "\(data.historyId!)"
+        historyCell.lblHistoryName.text = "\(data.historyName!)"
         historyCell.lblHistoryRepititionNominal.text = "\(data.historyRepetition!)"
         historyCell.lblCalBurnedNominal.text = "\(data.historyCaloriesBurn!)"
         
@@ -181,6 +184,72 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         } catch  {
             
         }
+    }
+    
+    func appendExercises() {
+        let exercise1 = Exercise()
+        exercise1.exerciseId = 0
+        exercise1.exerciseImage = "push-up"
+        exercise1.exerciseName = "Push Up"
+        exercise1.exerciseRound = 1
+        exercise1.exerciseRest = 30
+        exerciseList.append(exercise1)
+        
+        let exercise2 = Exercise()
+        exercise2.exerciseId = 1
+        exercise2.exerciseImage = "sit-up"
+        exercise2.exerciseName = "Sit Up"
+        exercise2.exerciseRound = 2
+        exercise2.exerciseRest = 45
+        exerciseList.append(exercise2)
+        
+        let exercise3 = Exercise()
+        exercise3.exerciseId = 2
+        exercise3.exerciseImage = "hip-raise"
+        exercise3.exerciseName = "Hip Raise"
+        exercise3.exerciseRound = 3
+        exercise3.exerciseRest = 30
+        exerciseList.append(exercise3)
+
+        let exercise4 = Exercise()
+        exercise4.exerciseId = 3
+        exercise4.exerciseImage = "leg-raise"
+        exercise4.exerciseName = "Leg Raise"
+        exercise4.exerciseRound = 3
+        exercise4.exerciseRest = 30
+        exerciseList.append(exercise4)
+
+        let exercise5 = Exercise()
+        exercise5.exerciseId = 4
+        exercise5.exerciseImage = "burpees"
+        exercise5.exerciseName = "Burpees"
+        exercise5.exerciseRound = 2
+        exercise5.exerciseRest = 45
+        exerciseList.append(exercise5)
+
+        let exercise6 = Exercise()
+        exercise6.exerciseId = 5
+        exercise6.exerciseImage = "jumping-jack"
+        exercise6.exerciseName = "Jumping Jack"
+        exercise6.exerciseRound = 3
+        exercise6.exerciseRest = 30
+        exerciseList.append(exercise6)
+
+        let exercise7 = Exercise()
+        exercise7.exerciseId = 6
+        exercise7.exerciseImage = "squats"
+        exercise7.exerciseName = "Squats"
+        exercise7.exerciseRound = 1
+        exercise7.exerciseRest = 45
+        exerciseList.append(exercise7)
+
+        let exercise8 = Exercise()
+        exercise8.exerciseId = 7
+        exercise8.exerciseImage = "lunges"
+        exercise8.exerciseName = "Lunges"
+        exercise8.exerciseRound = 2
+        exercise8.exerciseRest = 30
+        exerciseList.append(exercise8)
     }
     
     // 1. insert outlet table view, import table view delegate dll cth: exerciseViewController
