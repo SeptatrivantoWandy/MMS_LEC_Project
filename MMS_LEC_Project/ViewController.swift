@@ -8,6 +8,8 @@
 //
 
 /*
+ Master Finalizing
+ 
  Anggota Kelompok:
  1. 2301869512 - Septatrivanto Wandy
  2. 2301870810 - Howard Tanner
