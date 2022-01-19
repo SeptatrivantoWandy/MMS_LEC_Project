@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate.self as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         
-        tfUserPassword.textContentType = .oneTimeCode
+//        tfUserPassword.textContentType = .oneTimeCode
         loadData()
         
     }

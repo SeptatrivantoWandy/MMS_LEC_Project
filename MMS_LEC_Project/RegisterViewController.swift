@@ -33,8 +33,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         tfUserHeight.delegate = self
         tfUserWeight.delegate = self
-        tfUserPassword.textContentType = .oneTimeCode
-        tfUserConfirmPassword.textContentType = .oneTimeCode
+//        tfUserPassword.textContentType = .oneTimeCode
+//        tfUserConfirmPassword.textContentType = .oneTimeCode
         userGender = "Male"
         
         loadData()
